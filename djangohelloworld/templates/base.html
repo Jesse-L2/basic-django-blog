@@ -1,0 +1,21 @@
+<!-- templates/base.html -->
+{% load static %}
+<header>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+    <a href="{% url 'home' %}">Home</a>  |  <a href="{% url 'about' %}">About</a>  |  <a href="{% url 'messageboard' %}">Message Board</a>  |  <a href="{% url 'blog' %}">Blog</a>
+</header>
+
+
+
+{% block content %}
+{% endblock content %}
+
+{% if user.is_authenticated %}
+<p>Hello, {{ user.username }}!</p>
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Log In</a>  |
+<a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}

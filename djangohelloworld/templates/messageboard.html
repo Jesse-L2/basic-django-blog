@@ -1,0 +1,12 @@
+<!-- templates/messageboard.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to the message board!</h1>
+<ul>
+    {% for post in all_posts_list %}
+        <li>{{ post.text }}</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
